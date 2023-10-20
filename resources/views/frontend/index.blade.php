@@ -166,7 +166,7 @@ Home
                                         </div>
 
                                         <h3 class="headline headline-3">
-                                            <a href="#" class="card-title hover-2">
+                                            <a href="{{route('frontend.post.show', $featuredPost->id)}}" class="card-title hover-2">
                                                 {{ $featuredPost->name }}
                                             </a>
                                         </h3>
@@ -280,12 +280,11 @@ Home
                           <a href="#" class="card-badge">{{$category->name}}</a>
       
                           <h3 class="headline headline-3 card-title">
-                            <a href="#" class="link hover-2">Helpful Tips for Working from Home as a Freelancer</a>
+                            <a href="{{route('frontend.post.show', $recentPost->id)}}" class="link hover-2">{{$recentPost->name}}</a>
                           </h3>
       
                           <p class="card-text">
-                            Gosh jaguar ostrich quail one excited dear hello and bound and the and bland moral misheard
-                            roadrunner flapped lynx far that and jeepers giggled far and far
+                          {{$recentPost->intro}}
                           </p>
       
                           <div class="card-wrapper">

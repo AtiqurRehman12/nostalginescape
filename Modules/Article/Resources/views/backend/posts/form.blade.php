@@ -316,6 +316,11 @@
 
     $('#content').summernote({
         height: 120,
+        colors: [
+        ['#FF0000', '#FF00FF', '#0000FF'],  // Red, Magenta, Blue
+        ['#FFFF00', '#00FF00', '#00FFFF'],  // Yellow, Green, Cyan
+        ['#000000', '#FFFFFF']  // Black, White
+    ],
         toolbar: [
             ['style', ['style']],
             ['font', ['fontname', 'fontsize', 'bold', 'underline', 'clear']],

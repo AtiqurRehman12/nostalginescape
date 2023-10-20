@@ -20,11 +20,11 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="{{ route('frontend.posts.index') }}" class="navbar-link hover-1" data-nav-toggler>Home</a>
+            <a href="{{ route('frontend.index') }}" class="navbar-link hover-1" data-nav-toggler>Home</a>
           </li>
 
           <li>
-            <a href="#topics" class="navbar-link hover-1" data-nav-toggler>Topics</a>
+            <a href="{{route('frontend.categories')}}" class="navbar-link hover-1" data-nav-toggler>Categories</a>
           </li>
 
           <li>
@@ -91,8 +91,16 @@
         </p>
 
       </nav>
-
-      <a href="#" class="btn btn-primary">Subscribe</a>
+      @if (auth()->check())
+      <form action="{{route('logout')}}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary" >Log out</button>
+      </form>
+          
+      @else
+      <a href="{{route('login')}}" class="btn btn-primary">Login</a>
+          
+      @endif
 
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>

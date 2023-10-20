@@ -47,8 +47,16 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function terms()
+    public function posts()
     {
-        return view('frontend.terms');
+        $posts = Post::paginate(6);
+        $popularPosts = Post::popular()->take(5)->get();
+        $featuredPosts = Post::featured()->take(5)->get();
+
+        return view('frontend.posts', compact('posts', 'popularPosts', 'featuredPosts'));
+    }
+    public function postShow($id){
+        $post = Post::find($id);
+        return view('frontend.postsShow', compact('post'));
     }
 }
