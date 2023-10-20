@@ -34,54 +34,22 @@
             <p class="footer-list-title">Categories</p>
 
             <ul>
-
+              @php
+                  $categories = DB::table('categories')->get()
+              @endphp
+              @forelse ($categories as $category)
               <li>
-                <a href="#" class="footer-link hover-2">Action</a>
+                <a href="#" class="footer-link hover-2">{{$category->name}}</a>
               </li>
+                  
+              @empty
+                  
+              @endforelse
 
-              <li>
-                <a href="#" class="footer-link hover-2">Business</a>
-              </li>
 
-              <li>
-                <a href="#" class="footer-link hover-2">Adventure</a>
-              </li>
+              
 
-              <li>
-                <a href="#" class="footer-link hover-2">Canada</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">America</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Curiosity</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Animal</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Dental</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Biology</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Design</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Breakfast</a>
-              </li>
-
-              <li>
-                <a href="#" class="footer-link hover-2">Dessert</a>
-              </li>
+           
 
             </ul>
 
@@ -121,7 +89,7 @@
         <div class="footer-bottom">
 
           <p class="copyright">
-            &copy; Developed by <a href="#" class="copyright-link">codewithsadee.</a>
+            &copy;<a href="#" class="copyright-link">NostalgiNEScape {{date('Y')}}.</a>
           </p>
 
           <ul class="social-list">

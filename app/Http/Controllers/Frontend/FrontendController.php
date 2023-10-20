@@ -25,9 +25,10 @@ class FrontendController extends Controller
         $featuredPosts = Post::featured()->take(5)->get();
         $tags = Tag::take(12)->get();
         $recentPosts = Post::recentlyPublished()->paginate(5);
+        $popularPosts = Post::popular()->take(5)->get();
 
 
-        return view('frontend.index', compact('categoriesWithMostPosts', 'featuredPosts', 'tags', 'recentPosts'));
+        return view('frontend.index', compact('categoriesWithMostPosts', 'featuredPosts', 'tags', 'recentPosts', 'popularPosts'));
     }
 
     /**
@@ -35,9 +36,10 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function privacy()
+    public function categories()
     {
-        return view('frontend.privacy');
+        $categories = Category::withCount('posts')->get();
+        return view('frontend.categories', compact('categories'));
     }
 
     /**

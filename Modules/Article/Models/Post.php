@@ -165,6 +165,12 @@ class Post extends BaseModel
             ->where('status', '=', '1')
             ->where('published_at', '<=', Carbon::now());
     }
+    public function scopePopular($query)
+{
+    return $query->where('status', '=', '1')
+        ->orderBy('hits', 'desc');
+}
+
   
 
     /**

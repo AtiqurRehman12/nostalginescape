@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-    {{ app_name() }}
+Home
 @endsection
 
 @section('content')
@@ -208,7 +208,7 @@
 
                 </div>
 
-                <img src="./assets/images/shadow-3.svg" width="500" height="1500" loading="lazy" alt=""
+                <img src="{{asset('frontend/assets/images/shadow-3.svg')}}" width="500" height="1500" loading="lazy" alt=""
                     class="feature-bg">
 
             </section>
@@ -265,6 +265,7 @@
                     @forelse ($recentPosts as $recentPost)
                     @php
                         $category = $recentPost->category;
+                        $tags = $recentPost->tags;
                     @endphp
                     <li>
                       <div class="recent-post-card">
@@ -289,16 +290,19 @@
       
                           <div class="card-wrapper">
                             <div class="card-tag">
-                              <a href="#" class="span hover-2"># Travel</a>
+                              @forelse ($tags as $tag)
+                              <a href="#" class="span hover-2"># {{$tag->name}}</a>
       
-                              <a href="#" class="span hover-2"># Lifestyle</a>
+                              @empty
+                                  
+                              @endforelse
                             </div>
       
-                            <div class="wrapper">
+                            {{-- <div class="wrapper">
                               <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
       
                               <span class="span">3 mins read</span>
-                            </div>
+                            </div> --}}
                           </div>
       
                         </div>
@@ -312,9 +316,9 @@
       
                   </ul>
       
-                  {{-- <nav aria-label="pagination" class="pagination"> --}}
+                  {{-- <nav aria-label="pagination" class="pagination">
       
-                    {{-- <a href="#" class="pagination-btn" aria-label="previous page">
+                    <a href="#" class="pagination-btn" aria-label="previous page">
                       <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
                     </a>
       
@@ -325,10 +329,12 @@
       
                     <a href="#" class="pagination-btn" aria-label="next page">
                       <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                    </a> --}}
-                    {{$recentPosts->links('pagination::bootstrap-4')}}
+                    </a>
       
-                  {{-- </nav> --}}
+                  </nav> --}}
+
+                  @include('components.frontend.custom-pagination', ['paginator' => $recentPosts])
+
       
                 </div>
       
@@ -341,137 +347,39 @@
                     </h3>
       
                     <ul class="popular-list">
-      
+                      @forelse ($popularPosts as $popularPost)
                       <li>
                         <div class="popular-card">
-      
                           <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                            <img src="./assets/images/popular-post-1.jpg" width="64" height="64" loading="lazy"
-                              alt="Creating is a privilege but it’s also a gift" class="img-cover">
+                            <img src="{{$popularPost->featured_image}}" width="64" height="64" loading="lazy"
+                              alt="" class="img-cover">
                           </figure>
       
                           <div class="card-content">
       
                             <h4 class="headline headline-4 card-title">
-                              <a href="#" class="link hover-2">Creating is a privilege but it’s also a gift</a>
+                              <a href="#" class="link hover-2">{{$popularPost->name}}</a>
                             </h4>
       
-                            <div class="warpper">
-                              <p class="card-subtitle">15 mins read</p>
-      
-                              <time class="publish-date" datetime="2022-04-15">15 April 2022</time>
+                            <div class="warpper">      
+                              <time class="publish-date" datetime="2022-04-15">{{ $popularPost->published_at->format('F j, Y') }}
+                              </time>
                             </div>
       
                           </div>
       
                         </div>
                       </li>
-      
-                      <li>
-                        <div class="popular-card">
-      
-                          <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                            <img src="./assets/images/popular-post-2.jpg" width="64" height="64" loading="lazy"
-                              alt="Being unique is better than being perfect" class="img-cover">
-                          </figure>
-      
-                          <div class="card-content">
-      
-                            <h4 class="headline headline-4 card-title">
-                              <a href="#" class="link hover-2">Being unique is better than being perfect</a>
-                            </h4>
-      
-                            <div class="warpper">
-                              <p class="card-subtitle">15 mins read</p>
-      
-                              <time class="publish-date" datetime="2022-04-15">15 April 2022</time>
-                            </div>
-      
-                          </div>
-      
-                        </div>
-                      </li>
-      
-                      <li>
-                        <div class="popular-card">
-      
-                          <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                            <img src="./assets/images/popular-post-3.jpg" width="64" height="64" loading="lazy"
-                              alt="Every day, in every city and town across the country" class="img-cover">
-                          </figure>
-      
-                          <div class="card-content">
-      
-                            <h4 class="headline headline-4 card-title">
-                              <a href="#" class="link hover-2">Every day, in every city and town across the country</a>
-                            </h4>
-      
-                            <div class="warpper">
-                              <p class="card-subtitle">15 mins read</p>
-      
-                              <time class="publish-date" datetime="2022-04-15">15 April 2022</time>
-                            </div>
-      
-                          </div>
-      
-                        </div>
-                      </li>
-      
-                      <li>
-                        <div class="popular-card">
-      
-                          <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                            <img src="./assets/images/popular-post-4.jpg" width="64" height="64" loading="lazy"
-                              alt="Your voice, your mind, your story, your vision" class="img-cover">
-                          </figure>
-      
-                          <div class="card-content">
-      
-                            <h4 class="headline headline-4 card-title">
-                              <a href="#" class="link hover-2">Your voice, your mind, your story, your vision</a>
-                            </h4>
-      
-                            <div class="warpper">
-                              <p class="card-subtitle">15 mins read</p>
-      
-                              <time class="publish-date" datetime="2022-04-15">15 April 2022</time>
-                            </div>
-      
-                          </div>
-      
-                        </div>
-                      </li>
-      
-                      <li>
-                        <div class="popular-card">
-      
-                          <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                            <img src="./assets/images/popular-post-2.jpg" width="64" height="64" loading="lazy"
-                              alt="Being unique is better than being perfect" class="img-cover">
-                          </figure>
-      
-                          <div class="card-content">
-      
-                            <h4 class="headline headline-4 card-title">
-                              <a href="#" class="link hover-2">Being unique is better than being perfect</a>
-                            </h4>
-      
-                            <div class="warpper">
-                              <p class="card-subtitle">15 mins read</p>
-      
-                              <time class="publish-date" datetime="2022-04-15">15 April 2022</time>
-                            </div>
-      
-                          </div>
-      
-                        </div>
-                      </li>
+                          
+                      @empty
+                          
+                      @endforelse
       
                     </ul>
       
                   </div>
       
-                  <div class="card aside-card">
+                  {{-- <div class="card aside-card">
       
                     <h3 class="headline headline-2 aside-title">
                       <span class="span">Last Comment</span>
@@ -551,9 +459,9 @@
       
                     </ul>
       
-                  </div>
+                  </div> --}}
       
-                  <div class="card aside-card insta-card">
+                  {{-- <div class="card aside-card insta-card">
       
                     <a href="#" class="logo">
                       <img src="./assets/images/logo.svg" width="119" height="37" loading="lazy" alt="Wren logo">
@@ -630,7 +538,7 @@
       
                     </ul>
       
-                  </div>
+                  </div> --}}
       
                 </div>
       
