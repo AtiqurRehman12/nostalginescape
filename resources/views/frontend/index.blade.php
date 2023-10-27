@@ -24,7 +24,7 @@ Home
                             interaction. I’m not adding motion just to spruce things up, but doing it in ways that.
                         </p>
 
-                        <div class="input-wrapper">
+                        {{-- <div class="input-wrapper">
 
                             <input type="email" name="email_address" placeholder="Type your email address" required
                                 class="input-field" autocomplete="off">
@@ -35,11 +35,11 @@ Home
                                 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                             </button>
 
-                        </div>
+                        </div> --}}
 
                     </div>
 
-                    <div class="hero-banner">
+                    {{-- <div class="hero-banner">
 
                         <img src="{{ asset('frontend/assets/images/hero-banner.png') }}" width="327" height="490"
                             alt="Wren Clark" class="w-100">
@@ -50,7 +50,7 @@ Home
                         <img src="{{ asset('frontend/assets/images/pattern-3.svg') }}" width="27" height="26"
                             alt="shape" class="shape shape-2">
 
-                    </div>
+                    </div> --}}
 
                     <img src="{{ asset('frontend/assets/images/shadow-1.svg') }}" width="500" height="800"
                         alt="" class="hero-bg hero-bg-1">
@@ -94,7 +94,7 @@ Home
                             <ul class="slider-list" data-slider-container>
                                 @forelse ($categoriesWithMostPosts as $categoryWithMostPosts)
                                     <li class="slider-item">
-                                        <a href="#" class="slider-card">
+                                        <a href="{{route('frontend.posts', $categoryWithMostPosts)}}" class="slider-card">
 
                                             <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
                                                 <img src="{{ $categoryWithMostPosts->image }}" width="507" height="618"
@@ -146,6 +146,9 @@ Home
 
                     <ul class="feature-list">
                         @forelse ($featuredPosts as $featuredPost)
+                        @php
+                            $postTags = $featuredPost->tags;
+                        @endphp
                             <li>
                                 <div class="card feature-card" style="min-height: 500px;">
 
@@ -158,9 +161,11 @@ Home
 
                                         <div class="card-wrapper">
                                             <div class="card-tag">
-                                                <a href="#" class="span hover-2">#Travel</a>
+                                              @foreach ($postTags as $postTag)
+                                              <a href="#" class="span hover-2">{{$postTag}}</a>
+                                                  
+                                              @endforeach
 
-                                                <a href="#" class="span hover-2">#Lifestyle</a>
                                             </div>
 
                                         </div>
@@ -186,7 +191,7 @@ Home
                                                 </div>
                                             </div>
 
-                                            <a href="#" class="card-btn">Read more</a>
+                                            <a href="{{route('frontend.post.show', $featuredPost->id)}}" class="card-btn">Read more</a>
 
                                         </div>
 

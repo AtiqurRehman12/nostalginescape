@@ -44,7 +44,7 @@
                     <ul class="slider-list" data-slider-container>
                         @forelse ($categories as $category)
                             <li class="slider-item">
-                                <a href="#" class="slider-card">
+                                <a href="{{route('frontend.posts', $category->id)}}" class="slider-card">
 
                                     <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
                                         <img src="{{ $category->image }}" width="507" height="618" loading="lazy"

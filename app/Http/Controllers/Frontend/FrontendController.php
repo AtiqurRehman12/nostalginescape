@@ -15,6 +15,11 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('verify.email');
+     }
     public function index()
     {
         $categoriesWithMostPosts = Category::select('categories.*')
@@ -47,9 +52,14 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function posts()
+    public function posts($catId = null)
     {
-        $posts = Post::paginate(6);
+        if($catId){
+            $posts = Post::where('category_id','=', $catId)->paginate(6);
+        }else{
+            $posts = Post::paginate(6);
+
+        }
         $popularPosts = Post::popular()->take(5)->get();
         $featuredPosts = Post::featured()->take(5)->get();
 
@@ -57,6 +67,8 @@ class FrontendController extends Controller
     }
     public function postShow($id){
         $post = Post::find($id);
+        $post->hits = $post->hits+1;
+        $post->save();
         return view('frontend.postsShow', compact('post'));
     }
 }

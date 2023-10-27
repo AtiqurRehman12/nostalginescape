@@ -41,8 +41,11 @@
             <div class="col-12 col-sm-6">
 
                 <div class="text-center">
-                    <a href="{{route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug])}}" class="btn btn-success" target="_blank"><i class="fas fa-link"></i> Public View</a>
+                    <a href="{{route("frontend.post.show", [encode_id($post->id), $post->slug])}}" class="btn btn-success" target="_blank"><i class="fas fa-link"></i> Public View</a>
                 </div>
+                {{-- <div class="text-center">
+                    <a href="{{route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug])}}" class="btn btn-success" target="_blank"><i class="fas fa-link"></i> Public View</a>
+                </div> --}}
                 <hr>
 
                 <h4>Category</h4>

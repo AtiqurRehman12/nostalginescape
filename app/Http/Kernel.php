@@ -45,7 +45,11 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+    ];   protected $routeMiddleware = [
+        'verify.email' => \App\Http\Middleware\VerifyEmailMiddleware::class,
     ];
+
+
 
     /**
      * The application's middleware aliases.

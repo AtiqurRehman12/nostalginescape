@@ -4,10 +4,14 @@
 @endsection
 @section('content')
 <section class="section recent-post" id="recent" aria-labelledby="recent-label">
-    <div class="container">
-
+    <div class="container" style="margin-top: 120px;">
       <div class="post-main">
-
+        <h2 class="headline headline-2 section-title">
+          <span class="span">Recent posts</span>
+        </h2>
+        <p class="section-text">
+          Don't miss the latest trends
+        </p>
 
         <ul class="grid-list">
           @forelse ($posts as $post)
@@ -25,10 +29,10 @@
 
               <div class="card-content">
 
-                <a href="#" class="card-badge">{{$category->name}}</a>
+                <a href="{{route('frontend.posts', $category->id)}}" class="card-badge">{{$category->name}}</a>
 
                 <h3 class="headline headline-3 card-title">
-                  <a href="#" class="link hover-2">{{$post->name}}</a>
+                  <a href="{{route('frontend.post.show', $post->id)}}" class="link hover-2">{{$post->name}}</a>
                 </h3>
 
                 <p class="card-text">
@@ -106,7 +110,7 @@
                   <div class="card-content">
   
                     <h4 class="headline headline-4 card-title">
-                      <a href="#" class="link hover-2">{{$popularPost->name}}</a>
+                      <a href="{{route('frontend.post.show', $popularPost->id)}}" class="link hover-2">{{$popularPost->name}}</a>
                     </h4>
   
                     <div class="warpper">      
@@ -143,7 +147,7 @@
                   <div class="card-content">
   
                     <h4 class="headline headline-4 card-title">
-                      <a href="#" class="link hover-2">{{$featuredPost->name}}</a>
+                      <a href="{{route('frontend.post.show',$featuredPost->id )}}" class="link hover-2">{{$featuredPost->name}}</a>
                     </h4>
   
                     <div class="warpper">      

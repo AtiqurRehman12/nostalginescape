@@ -10,7 +10,7 @@ $notifications_latest = optional($notifications)->take(5);
             <i class="fa-solid fa-bars"></i>
         </button>
         <a class="header-brand d-sm-none" href="#">
-            <img class="sidebar-brand-full" src="{{asset('img/backend-logo-square.jpg')}}" height="46" alt="{{ app_name() }}">
+            <img class="sidebar-brand-full" src="{{asset('img/icon.png')}}" height="46" alt="{{ app_name() }}">
         </a>
         <ul class="header-nav d-none d-md-flex">
             <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}" target="_blank">{{app_name()}}&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
@@ -59,7 +59,7 @@ $notifications_latest = optional($notifications)->take(5);
 
             <li class="nav-item dropdown">
                 <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <div class="avatar avatar-md">
+                    <div class="avatar avatar-md border shadow-lg">
                         <img class="avatar-img" src="{{ asset(auth()->user()->avatar) }}" alt="{{ asset(auth()->user()->name) }}">
                     </div>
                 </a>
@@ -71,9 +71,9 @@ $notifications_latest = optional($notifications)->take(5);
                     <a class="dropdown-item" href="{{route('backend.users.profile', Auth::user()->id)}}">
                         <i class="fa-regular fa-user me-2"></i>&nbsp;{{ Auth::user()->name }}
                     </a>
-                    <a class="dropdown-item" href="{{route('backend.users.profile', Auth::user()->id)}}">
+                    {{-- <a class="dropdown-item" href="{{route('backend.users.profile', Auth::user()->id)}}">
                         <i class="fa-regular fa-user me-2"></i>&nbsp;{{ Auth::user()->email }}
-                    </a>
+                    </a> --}}
 
                     <div class="dropdown-divider"></div>
 

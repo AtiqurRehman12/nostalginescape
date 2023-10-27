@@ -67,7 +67,7 @@ return [
                 'label' => 'Website URL', // you know what label it is
                 'rules' => 'required|nullable|max:191', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'https://nasirkhn.com', // default value if you want
+                'value' => '#', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type
@@ -84,8 +84,8 @@ return [
                 'name' => 'twitter_url', // unique name for field
                 'label' => 'Twitter Profile URL', // you know what label it is
                 'rules' => 'required|nullable|max:191', // validation rule of laravel
-                'class' => '', // any class for input
-                'value' => 'https://twitter.com/nasirkhansaikat', // default value if you want
+                'class' => '#', // any class for input
+                'value' => '', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type
@@ -94,7 +94,7 @@ return [
                 'label' => 'Instagram Account URL', // you know what label it is
                 'rules' => 'required|nullable|max:191', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'https://www.instagram.com/nasirkhansaikat', // default value if you want
+                'value' => '#', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type
@@ -103,7 +103,7 @@ return [
                 'label' => 'Youtube Channel URL', // you know what label it is
                 'rules' => 'required|nullable|max:191', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'https://www.youtube.com/@nasirkhan', // default value if you want
+                'value' => '#', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type
@@ -206,43 +206,43 @@ return [
             ],
         ],
     ],
-    'analytics' => [
-        'title' => 'Analytics',
-        'desc' => 'Application Analytics',
-        'icon' => 'fas fa-chart-line',
+    // 'analytics' => [
+    //     'title' => 'Analytics',
+    //     'desc' => 'Application Analytics',
+    //     'icon' => 'fas fa-chart-line',
 
-        'elements' => [
-            [
-                'type' => 'text', // input fields type
-                'data' => 'text', // data type, string, int, boolean
-                'name' => 'google_analytics', // unique name for field
-                'label' => 'Google Analytics (gtag)', // you know what label it is
-                'rules' => '', // validation rule of laravel
-                'class' => '', // any class for input
-                'value' => 'G-ABCDE12345', // default value if you want
-                'help' => 'Paste the only the Measurement Id of Google Analytics stream.', // Help text for the input field.
-            ],
-        ],
+    //     'elements' => [
+    //         [
+    //             'type' => 'text', // input fields type
+    //             'data' => 'text', // data type, string, int, boolean
+    //             'name' => 'google_analytics', // unique name for field
+    //             'label' => 'Google Analytics (gtag)', // you know what label it is
+    //             'rules' => '', // validation rule of laravel
+    //             'class' => '', // any class for input
+    //             'value' => 'G-ABCDE12345', // default value if you want
+    //             'help' => 'Paste the only the Measurement Id of Google Analytics stream.', // Help text for the input field.
+    //         ],
+    //     ],
 
-    ],
-    'custom_css' => [
-        'title' => 'Custom Code',
-        'desc' => 'Custom code area',
-        'icon' => 'fa-solid fa-file-code',
+    // ],
+    // 'custom_css' => [
+    //     'title' => 'Custom Code',
+    //     'desc' => 'Custom code area',
+    //     'icon' => 'fa-solid fa-file-code',
 
-        'elements' => [
-            [
-                'type' => 'textarea', // input fields type
-                'data' => 'string', // data type, string, int, boolean
-                'name' => 'custom_css_block', // unique name for field
-                'label' => 'Custom Css Code', // you know what label it is
-                'rules' => '', // validation rule of laravel
-                'class' => '', // any class for input
-                'value' => '', // default value if you want
-                'help' => 'Paste the code in this field.', // Help text for the input field.
-                'display' => 'raw', // Help text for the input field.
-            ],
-        ],
+    //     'elements' => [
+    //         [
+    //             'type' => 'textarea', // input fields type
+    //             'data' => 'string', // data type, string, int, boolean
+    //             'name' => 'custom_css_block', // unique name for field
+    //             'label' => 'Custom Css Code', // you know what label it is
+    //             'rules' => '', // validation rule of laravel
+    //             'class' => '', // any class for input
+    //             'value' => '', // default value if you want
+    //             'help' => 'Paste the code in this field.', // Help text for the input field.
+    //             'display' => 'raw', // Help text for the input field.
+    //         ],
+    //     ],
 
-    ],
+    // ],
 ];

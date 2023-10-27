@@ -136,7 +136,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3">
+            {{-- <div class="form-group row mb-3">
                 {{ html()->label(__('Abilities'))->class('col-sm-2 form-control-label') }}
                 <div class="col">
                     <div class="row mb-3">
@@ -192,7 +192,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row mb-3">
                 <div class="col-sm-4">

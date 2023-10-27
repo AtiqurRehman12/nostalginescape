@@ -258,6 +258,19 @@ body.nav-active { overflow: hidden; }
   gap: 3px;
   transition: var(--transition-1);
 }
+.logout-btn{
+  background-image: var(--gradient-2);
+  background-size: 200%;
+  background-position: left;
+  color: var(--white);
+  font-size: var(--fontSize-6);
+  font-weight: var(--weight-bold);
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: var(--transition-1);
+}
 
 .btn:is(:hover, :focus-visible) { background-position: right; }
 

@@ -10,15 +10,20 @@
                             <th>{{ __('labels.backend.users.fields.name') }}</th>
                             <th>{{ __('labels.backend.users.fields.email') }}</th>
                             <th>{{ __('labels.backend.users.fields.status') }}</th>
-                            <th>{{ __('labels.backend.users.fields.roles') }}</th>
+                            {{-- <th>{{ __('labels.backend.users.fields.roles') }}</th>
                             <th>{{ __('labels.backend.users.fields.permissions') }}</th>
-                            <th>{{ __('labels.backend.users.fields.social') }}</th>
+                            <th>{{ __('labels.backend.users.fields.social') }}</th> --}}
 
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
+                        @php
+                            if($user->id==1){
+                                continue;
+                            }
+                        @endphp
                         <tr>
                             <td>
                                 <strong>
@@ -32,7 +37,7 @@
                                 {!! $user->status_label !!}
                                 {!! $user->confirmed_label !!}
                             </td>
-                            <td>
+                            {{-- <td>
                                 @if($user->getRoleNames()->count() > 0)
                                 <ul class="fa-ul">
                                     @foreach ($user->getRoleNames() as $role)
@@ -58,7 +63,7 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                            </td>
+                            </td> --}}
 
                             <td class="text-end">
                                 <a href="{{route('backend.users.show', $user)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
@@ -87,7 +92,7 @@
     <div class="row">
         <div class="col-7">
             <div class="float-left">
-                {!! $users->total() !!} {{ __('labels.backend.total') }}
+                {!! $users->total() -1 !!} {{ __('labels.backend.total') }}
             </div>
         </div>
         <div class="col-5">

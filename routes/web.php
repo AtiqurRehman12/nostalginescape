@@ -30,7 +30,7 @@ Route::get('dashboard', 'App\Http\Controllers\Frontend\FrontendController@index'
 Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.'], function () {
     Route::get('/', 'FrontendController@index')->name('index');
     Route::get('/categories', 'FrontendController@categories')->name('categories');
-    Route::get('/posts', 'FrontendController@posts')->name('posts');
+    Route::get('/posts/{catId?}', 'FrontendController@posts')->name('posts');
     Route::get('/post/{id}', 'FrontendController@postShow')->name('post.show');
 
     Route::group(['middleware' => ['auth']], function () {

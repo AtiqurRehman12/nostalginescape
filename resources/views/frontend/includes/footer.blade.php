@@ -12,7 +12,7 @@
           <div class="footer-brand">
 
             <a href="#" class="logo">
-              <img src="./assets/images/logo.svg" width="119" height="37" loading="lazy" alt="Wren logo">
+              <img src="{{asset('frontend/FullLogo_Transparent.png')}}" width="119" height="37" loading="lazy" alt="Wren logo">
             </a>
 
             <p class="footer-text">
@@ -55,7 +55,7 @@
 
           </div>
 
-          <div class="footer-list">
+          {{-- <div class="footer-list">
 
             <p class="footer-list-title">Newsletter</p>
 
@@ -82,7 +82,7 @@
               <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
             </a>
 
-          </div>
+          </div> --}}
 
         </div>
 
