@@ -52,35 +52,107 @@
     @livewireScripts
     @stack('after-scripts')
 
-  <script>
-    // Function to toggle dark mode
-    function toggleDarkMode() {
-        const body = document.body;
-        body.classList.toggle('dark-mode'); // Add this class to the <body> tag
-        const isDarkMode = body.classList.contains('dark-mode');
-        const themeLink = document.querySelector('#theme-link');
-        
-        // Update the CSS file based on the mode
-        if (isDarkMode) {
-            themeLink.href = "{{ asset('frontend/assets/css/style-dark.css') }}";
-        } else {
-            themeLink.href = "{{ asset('frontend/assets/css/style.css') }}";
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode'); // Add this class to the <body> tag
+            const isDarkMode = body.classList.contains('dark-mode');
+            const themeLink = document.querySelector('#theme-link');
+
+            // Update the CSS file based on the mode
+            if (isDarkMode) {
+                themeLink.href = "{{ asset('frontend/assets/css/style-dark.css') }}";
+            } else {
+                themeLink.href = "{{ asset('frontend/assets/css/style.css') }}";
+            }
+
+            // Store the user's theme preference in local storage
+            localStorage.setItem('dark-mode', isDarkMode);
         }
-        
-        // Store the user's theme preference in local storage
-        localStorage.setItem('dark-mode', isDarkMode);
+
+        // Add an event listener to the dark mode switch
+        const darkModeSwitch = document.querySelector('#username');
+        darkModeSwitch.addEventListener('change', toggleDarkMode);
+
+        // Check for the user's theme preference in local storage
+        const isStoredDarkMode = localStorage.getItem('dark-mode');
+        if (isStoredDarkMode === 'true') {
+            toggleDarkMode();
+        }
+    </script>
+   <script>
+    // Function to enable dark mode
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
     }
 
-    // Add an event listener to the dark mode switch
-    const darkModeSwitch = document.querySelector('#username');
-    darkModeSwitch.addEventListener('change', toggleDarkMode);
-
-    // Check for the user's theme preference in local storage
-    const isStoredDarkMode = localStorage.getItem('dark-mode');
-    if (isStoredDarkMode === 'true') {
-        toggleDarkMode();
+    // Function to disable dark mode
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
     }
+
+    // Check if dark mode is enabled or not in local storage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+
+    // Toggle dark mode when the switch is clicked
+    const darkModeSwitch = document.getElementById('username');
+    darkModeSwitch.addEventListener('change', function () {
+        if (this.checked) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const darkModeSwitch = document.getElementById('username');
+        const currentStylesheet = getCurrentStylesheet();
+
+        if (currentStylesheet === 'style-dark.css') {
+            darkModeSwitch.checked = true;
+        }
+
+        darkModeSwitch.addEventListener('change', function () {
+            if (this.checked) {
+                loadStylesheet('style-dark.css');
+            } else {
+                loadStylesheet('style.css');
+            }
+        });
+
+        function getCurrentStylesheet() {
+            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+            for (const stylesheet of stylesheets) {
+                if (stylesheet.href.includes('style-dark.css')) {
+                    return 'style-dark.css';
+                }
+            }
+            return 'style.css';
+        }
+
+        function loadStylesheet(stylesheet) {
+            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+            for (const stylesheetTag of stylesheets) {
+                if (stylesheetTag.href.includes(stylesheet)) {
+                    stylesheetTag.disabled = false;
+                } else {
+                    stylesheetTag.disabled = true;
+                }
+            }
+            localStorage.setItem('activeStylesheet', stylesheet);
+        }
+    });
+</script>
+
+
 
 
 

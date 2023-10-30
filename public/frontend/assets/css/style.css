@@ -37,7 +37,7 @@
   --text-slate-gray: rgb(47, 65, 98);
 
   /** Gradient colors */
-  --gradient-1: linear-gradient(90deg, #0ea5ea, #0bd1d1 51%);
+  --gradient-1: linear-gradient(90deg, #202121, #31316e 51%);
   --gradient-2: linear-gradient(90deg, #0ea5ea, #0bd1d1 51%, #0ea5ea);
   --gradient-3: linear-gradient(0deg, #000d1a, transparent);
 

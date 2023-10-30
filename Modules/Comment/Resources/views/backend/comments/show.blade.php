@@ -37,20 +37,20 @@
             </div>
             <div class="col">
 
-                <div class="text-center">
+                {{-- <div class="text-center">
                     <a href="{{route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug])}}" class="btn btn-success" target="_blank"><i class="fas fa-link"></i> Public View</a>
                 </div>
-                <hr>
+                <hr> --}}
 
-                <h4>Relation</h4>
+                <h4>Post</h4>
                 <ul>
                     <li>
                         <a href="{{route("backend.{$$module_name_singular->module_name}.show", $$module_name_singular->commentable->id)}}">{{ $$module_name_singular->commentable->name }}</a>
                     </li>
                 </ul>
-                <hr>
+                {{-- <hr> --}}
 
-                @include('backend.includes.activitylog')
+                {{-- @include('backend.includes.activitylog') --}}
                 <hr>
 
             </div>
