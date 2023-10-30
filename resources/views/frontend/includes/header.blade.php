@@ -33,15 +33,13 @@
                     <a href="{{ route('frontend.posts') }}" class="navbar-link hover-1" data-nav-toggler>Recent
                         Posts</a>
                 </li>
-
                 <li>
-                    <a href="#recent" class="navbar-link hover-1" data-nav-toggler>Recent Post</a>
+                    <label for="" style="vertical-align: -11px;">Dark Mode</label>
+                    <input type="checkbox" hidden="hidden" id="username">
+                    <label class="switch" for="username"></label>
                 </li>
 
-                <li>
-                    <a href="#" class="navbar-link hover-1" data-nav-toggler>Contact</a>
-                </li>
-                
+
 
             </ul>
 
@@ -81,24 +79,24 @@
               <a href="#" class="navbar-bottom-link hover-1">Account Setting</a>
             </li> --}}
 
-            <li>
+                    <li>
 
-              @if (auth()->check())
-                  <form action="{{ route('logout') }}" method="POST">
-                      @csrf
-                      <button type="submit" class="logout-btn btn-primary">Log out</button>
-                  </form>
-              @else
-                  <a href="{{ route('login') }}" class="logout-btn btn-primary">Login</a>
-              @endif
-          </li>
+                        @if (auth()->check())
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="logout-btn btn-primary">Log out</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="logout-btn btn-primary">Login</a>
+                        @endif
+                    </li>
 
                 </ul>
 
             </div>
 
             <p class="copyright-text">
-              
+
             </p>
 
         </nav>
