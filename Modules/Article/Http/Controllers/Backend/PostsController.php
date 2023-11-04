@@ -4,16 +4,20 @@ namespace Modules\Article\Http\Controllers\Backend;
 
 use App\Authorizable;
 use App\Http\Controllers\Controller;
+use App\Notifications\NewPostNotification;
 use Carbon\Carbon;
 use Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Modules\Article\Events\PostCreated;
 use Modules\Article\Events\PostUpdated;
 use Modules\Article\Http\Requests\Backend\PostsRequest;
+use Modules\Article\Models\Post;
 use Modules\Category\Models\Category;
+use Modules\Subscriber\Models\Subscriber;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\DataTables;
 
@@ -198,9 +202,14 @@ class PostsController extends Controller
 
         $data = $request->except('tags_list');
         $data['created_by_name'] = auth()->user()->name;
-
+        
+        $subscribers = Subscriber::all();
         $$module_name_singular = $module_model::create($data);
         $$module_name_singular->tags()->attach($request->input('tags_list'));
+        $postId = $$module_name_singular->id;
+        $post = Post::find($postId);
+        Notification::send($subscribers, new NewPostNotification($post));
+
 
         event(new PostCreated($$module_name_singular));
 

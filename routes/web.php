@@ -34,6 +34,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('/post/{id}', 'FrontendController@postShow')->name('post.show');
     Route::get('/contact-us', 'FrontendController@contactUs')->name('contactUs');
     Route::post('/contacted', 'FrontendController@contacted')->name('contacted');
+    Route::post('/subscribe', 'FrontendController@subscribed')->name('subscribe');
 
     Route::group(['middleware' => ['auth']], function () {
         /*

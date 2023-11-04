@@ -56,31 +56,33 @@
           </div>
 
           <div class="footer-list">
-
-            <p class="footer-list-title">Newsletter</p>
-
-            <p class="footer-text">
-              Sign up to be first to receive the latest stories inspiring us, case studies, and industry news.
-            </p>
-
-            <div class="input-wrapper">
-              <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
-
-              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-            </div>
-
-            <div class="input-wrapper">
-              <input type="email" name="email_address" placeholder="Emaill address" required class="input-field"
-                autocomplete="off">
-
-              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-            </div>
-
-            <a href="#" class="btn btn-primary">
-              <span class="span">Subscribe</span>
-
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </a>
+            <form action="{{route('frontend.subscribe')}}" method="POST">
+              @csrf
+              <p class="footer-list-title">Newsletter</p>
+  
+              <p class="footer-text">
+                Sign up to be first to receive the latest stories inspiring us, case studies, and industry news.
+              </p>
+  
+              <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
+  
+                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+              </div>
+  
+              <div class="input-wrapper">
+                <input type="email" name="email" placeholder="Emaill address" required class="input-field"
+                  autocomplete="off">
+  
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              </div>
+  
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+              {{-- <a href="#" class="btn btn-primary">
+  
+                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+              </a> --}}
+            </form>
 
           </div>
 

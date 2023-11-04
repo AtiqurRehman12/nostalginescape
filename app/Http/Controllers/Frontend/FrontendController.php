@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ContactUs;
+use App\Mail\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Modules\Article\Models\Post;
 use Modules\Category\Models\Category;
+use Modules\Subscriber\Models\Subscriber;
 use Modules\Tag\Models\Tag;
 class FrontendController extends Controller
 {
@@ -81,5 +83,18 @@ class FrontendController extends Controller
     {
         Mail::to("nostelginescape@gmail.com")->send(new ContactUs($request));
         return to_route('frontend.contactUs');
+    }
+    public function subscribed(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+        Mail::to($request->email)->send(new Subscription());
+        $subscriber = new Subscriber;
+        $subscriber->email = $request->email;
+        $subscriber->name = $request->name;
+        $subscriber->save();
+        return to_route('frontend.index');
+
     }
 }

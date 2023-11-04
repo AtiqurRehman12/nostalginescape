@@ -2,5 +2,6 @@
     "Article": true,
     "Tag": true,
     "Comment": true,
-    "Category": true
+    "Category": true,
+    "Subscriber": true
 }
