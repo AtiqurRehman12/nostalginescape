@@ -177,21 +177,22 @@
             <div class="form" style="color: #045773">
                 <h4>GET IN TOUCH</h4>
                 <h2 class="form-headline">Send us a message</h2>
-                <form id="submit-form" action="">
+                <form id="submit-form" action="{{route('frontend.contacted')}}" method="POST">
+                    @csrf
                     <p>
-                        <input id="name" class="form-input" style="border: 1px solid #045773" type="text" placeholder="Your Name*">
+                        <input id="name" name="name" class="form-input" style="border: 1px solid #045773" type="text" placeholder="Your Name*">
                         <small class="name-error"></small>
                     </p>
                     <p>
-                        <input id="email" class="form-input" type="email" style="border: 1px solid #045773" required placeholder="Your Email*">
+                        <input id="email" name="email" class="form-input" type="email" style="border: 1px solid #045773" required placeholder="Your Email*">
                         <small class="name-error"></small>
                     </p>
                     <p class="full-width">
-                        <input id="company-name" class="form-input" style="border: 1px solid #045773" type="text" placeholder="Subject*" required>
+                        <input id="company-name" name="subject" class="form-input" style="border: 1px solid #045773" type="text" placeholder="Subject*" required>
                         <small></small>
                     </p>
                     <p class="full-width">
-                        <textarea minlength="20" style="background:transparent;border:1px solid #045773" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
+                        <textarea minlength="20" name="message" style="background:transparent;border:1px solid #045773" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
                         <small></small>
                     </p>
                    
