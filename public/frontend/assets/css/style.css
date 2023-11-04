@@ -24,8 +24,8 @@
   --bg-wild-blue-yonder: hsla(216, 33%, 68%, 1);
   --bg-carolina-blue: hsla(199, 89%, 49%, 1);
   --bg-prussian-blue: hsla(216, 33%, 20%, 1);
-  --bg-oxford-blue: rgb(196, 200, 212);
-  --bg-oxford-blue-2: rgb(199, 203, 210);
+  --bg-oxford-blue: #c78eff;
+  --bg-oxford-blue-2: #CF9FFF;
 
   /** Text colors */
   --text-white: hsla(0, 0%, 100%, 1);

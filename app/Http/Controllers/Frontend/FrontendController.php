@@ -71,4 +71,7 @@ class FrontendController extends Controller
         $post->save();
         return view('frontend.postsShow', compact('post'));
     }
+    public function contactUs(){
+        return view('frontend.contactUs');
+    }
 }

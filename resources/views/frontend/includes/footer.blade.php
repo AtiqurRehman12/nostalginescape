@@ -55,7 +55,7 @@
 
           </div>
 
-          {{-- <div class="footer-list">
+          <div class="footer-list">
 
             <p class="footer-list-title">Newsletter</p>
 
@@ -82,7 +82,7 @@
               <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
             </a>
 
-          </div> --}}
+          </div>
 
         </div>
 
