@@ -14,18 +14,22 @@
             <a href="#" class="logo">
               <img src="{{asset('frontend/FullLogo_Transparent.png')}}" width="119" height="37" loading="lazy" alt="Wren logo">
             </a>
-
+            @php
+                $footer = DB::table('infos')->first()
+            @endphp
             <p class="footer-text">
-              When an unknown prnoto sans took a galley and scrambled it to make specimen book not only five When an
-              unknown prnoto sans took a galley and scrambled it to five centurie.
+              {{$footer->footer_text}}
             </p>
-
+            @if ($footer->footer_address)
+                
             <p class="footer-list-title">Address</p>
 
             <address class="footer-text address">
-              123 Main Street <br>
-              New York, NY 10001
+              {{$footer->footer_address}}
+
             </address>
+            @endif
+                
 
           </div>
 
@@ -35,7 +39,7 @@
 
             <ul>
               @php
-                  $categories = DB::table('categories')->get()
+                  $categories = DB::table('categories')->take(14)->get()
               @endphp
               @forelse ($categories as $category)
               <li>
@@ -56,14 +60,14 @@
           </div>
 
           <div class="footer-list">
+            @csrf
+            <p class="footer-list-title">Newsletter</p>
+            
+            <p class="footer-text">
+              Sign up to be first to receive the latest stories inspiring us, case studies, and industry news.
+            </p>
+            
             <form action="{{route('frontend.subscribe')}}" method="POST">
-              @csrf
-              <p class="footer-list-title">Newsletter</p>
-  
-              <p class="footer-text">
-                Sign up to be first to receive the latest stories inspiring us, case studies, and industry news.
-              </p>
-  
               <div class="input-wrapper">
                 <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
   

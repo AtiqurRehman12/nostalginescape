@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <section class="section recent-post" id="recent" aria-labelledby="recent-label">
-    <div class="container" style="margin-top: 120px;">
+    <div class="container" style="margin-top: 150px;">
       <div class="post-main">
         <h2 class="headline headline-2 section-title">
           <span class="span">Recent posts</span>

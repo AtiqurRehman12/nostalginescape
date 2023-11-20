@@ -3,5 +3,6 @@
     "Tag": true,
     "Comment": true,
     "Category": true,
-    "Subscriber": true
+    "Subscriber": true,
+    "Info": true
 }

@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .show {
-            margin: 150px 0px;
+            margin: 250px 0px;
         }
 
         #title {
@@ -137,7 +137,7 @@
 
         @media (max-width: 769px) {
             .show {
-                margin: 155px 0;
+                margin: 190px 0;
             }
 
             .post-image-container img {

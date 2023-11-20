@@ -36,6 +36,27 @@
     @stack('after-styles')
 
     <x-google-analytics />
+    <style>
+        .logo img {
+            height: 190px;
+            width: 220px;
+        }
+        .index{
+            margin-top: 100px;
+        }
+
+        @media (max-width: 992px) {
+            .logo img {
+                height: 120px;
+                /* Adjust the height for smaller screens */
+                width: 140px;
+                /* Adjust the width for smaller screens */
+            }
+            .index{
+                margin-top: 0px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -81,76 +102,76 @@
             toggleDarkMode();
         }
     </script>
-   <script>
-    // Function to enable dark mode
-    function enableDarkMode() {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', 'enabled');
-    }
+    <script>
+        // Function to enable dark mode
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+        }
 
-    // Function to disable dark mode
-    function disableDarkMode() {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', 'disabled');
-    }
+        // Function to disable dark mode
+        function disableDarkMode() {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+        }
 
-    // Check if dark mode is enabled or not in local storage
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        enableDarkMode();
-    } else {
-        disableDarkMode();
-    }
-
-    // Toggle dark mode when the switch is clicked
-    const darkModeSwitch = document.getElementById('username');
-    darkModeSwitch.addEventListener('change', function () {
-        if (this.checked) {
+        // Check if dark mode is enabled or not in local storage
+        if (localStorage.getItem('darkMode') === 'enabled') {
             enableDarkMode();
         } else {
             disableDarkMode();
         }
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+
+        // Toggle dark mode when the switch is clicked
         const darkModeSwitch = document.getElementById('username');
-        const currentStylesheet = getCurrentStylesheet();
-
-        if (currentStylesheet === 'style-dark.css') {
-            darkModeSwitch.checked = true;
-        }
-
-        darkModeSwitch.addEventListener('change', function () {
+        darkModeSwitch.addEventListener('change', function() {
             if (this.checked) {
-                loadStylesheet('style-dark.css');
+                enableDarkMode();
             } else {
-                loadStylesheet('style.css');
+                disableDarkMode();
             }
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeSwitch = document.getElementById('username');
+            const currentStylesheet = getCurrentStylesheet();
 
-        function getCurrentStylesheet() {
-            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-            for (const stylesheet of stylesheets) {
-                if (stylesheet.href.includes('style-dark.css')) {
-                    return 'style-dark.css';
-                }
+            if (currentStylesheet === 'style-dark.css') {
+                darkModeSwitch.checked = true;
             }
-            return 'style.css';
-        }
 
-        function loadStylesheet(stylesheet) {
-            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-            for (const stylesheetTag of stylesheets) {
-                if (stylesheetTag.href.includes(stylesheet)) {
-                    stylesheetTag.disabled = false;
+            darkModeSwitch.addEventListener('change', function() {
+                if (this.checked) {
+                    loadStylesheet('style-dark.css');
                 } else {
-                    stylesheetTag.disabled = true;
+                    loadStylesheet('style.css');
                 }
+            });
+
+            function getCurrentStylesheet() {
+                const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+                for (const stylesheet of stylesheets) {
+                    if (stylesheet.href.includes('style-dark.css')) {
+                        return 'style-dark.css';
+                    }
+                }
+                return 'style.css';
             }
-            localStorage.setItem('activeStylesheet', stylesheet);
-        }
-    });
-</script>
+
+            function loadStylesheet(stylesheet) {
+                const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+                for (const stylesheetTag of stylesheets) {
+                    if (stylesheetTag.href.includes(stylesheet)) {
+                        stylesheetTag.disabled = false;
+                    } else {
+                        stylesheetTag.disabled = true;
+                    }
+                }
+                localStorage.setItem('activeStylesheet', stylesheet);
+            }
+        });
+    </script>
 
 
 

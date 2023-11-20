@@ -19,7 +19,10 @@
                     <div class="col-4 mt-4">
                         <x-backend.buttons.save />
                     </div>
-
+                    @if ($module_name == 'infos')
+                        
+                    @else
+                        
                     <div class="col-8 mt-4">
                         <div class="float-end">
                             @can('delete_'.$module_name)
@@ -28,6 +31,7 @@
                             <x-backend.buttons.cancel />
                         </div>
                     </div>
+                    @endif
                 </div>
 
                 {{ html()->closeModelForm() }}

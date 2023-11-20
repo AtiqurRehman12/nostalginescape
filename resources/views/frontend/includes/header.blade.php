@@ -1,8 +1,8 @@
 <header class="header" data-header>
     <div class="container">
 
-        <a href="#" class="logo">
-            <img src="{{ asset('frontend/FullLogo_Transparent.png') }}" width="119" height="37" alt="Wren logo">
+        <a href="{{route('frontend.index')}}" class="logo">
+            <img src="{{ asset('frontend/FullLogo_Transparent.png') }}" width="119" height="37" alt="">
         </a>
 
         <nav class="navbar" data-navbar>
@@ -10,7 +10,7 @@
             <div class="navbar-top">
                 <a href="#" class="logo">
                     <img src="{{ asset('frontend/IconOnly_Transparent.png') }}" width="119" height="37"
-                        alt="Wren logo">
+                        alt="">
                 </a>
 
                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
@@ -32,6 +32,9 @@
                 <li>
                     <a href="{{ route('frontend.posts') }}" class="navbar-link hover-1" data-nav-toggler>Recent
                         Posts</a>
+                </li>
+                <li>
+                    <a href="{{ route('frontend.contactUs') }}" class="navbar-link hover-1" data-nav-toggler>Contact us</a>
                 </li>
                 <li>
                     <label for="" style="vertical-align: -11px;">Dark Mode</label>

@@ -1081,7 +1081,9 @@ display: none;
   }
 
   .headline-3 { --fontSize-2: 2.4rem; }
-
+  .header .btn{
+    display: none;
+  }
 
 
   /**
@@ -1210,6 +1212,9 @@ display: none;
    */
 
   .container { max-width: 720px; }
+  .header .btn{
+    display: none;
+  }
 
 
 
@@ -1353,7 +1358,9 @@ display: none;
     margin-inline: auto;
   }
 
-  .header .btn { margin-inline-start: 0; }
+  .header .btn { 
+    margin-inline-start: 0;
+  display: block; }
 
   .navbar-link {
     color: var(--text-wild-blue-yonder);

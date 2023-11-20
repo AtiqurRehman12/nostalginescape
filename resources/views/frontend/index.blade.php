@@ -5,23 +5,24 @@ Home
 @endsection
 
 @section('content')
-    <main>
+    <main class="index">
         <article>
             <section class="hero" id="home" aria-label="home">
-                <div class="container">
+                <div class="container" style="display: block;">
 
                     <div class="hero-content">
 
                         <p class="hero-subtitle">Hello Everyone!</p>
-
+                        @php
+                            $intro = DB::table('infos')->first();
+                        @endphp
                         <h1 class="headline headline-1 section-title">
-                            I’m <span class="span">Wren Clark</span>
+                            {{-- I’m <span class="span">Wren Clark</span> --}}
+                            {{$intro->intro}}
                         </h1>
 
                         <p class="hero-text">
-                            I use animation as a third dimension by which to simplify experiences and kuiding thro each and
-                            every
-                            interaction. I’m not adding motion just to spruce things up, but doing it in ways that.
+                            {{$intro->intro_text}}
                         </p>
 
                         {{-- <div class="input-wrapper">

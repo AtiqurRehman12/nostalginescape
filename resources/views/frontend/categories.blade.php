@@ -13,7 +13,7 @@
     </style> --}}
 @endsection
 @section('content')
-    <section class="topics" style="margin-top: 150px; margin-bottom:70px;" id="topics" aria-labelledby="topic-label">
+    <section class="topics" style="margin-top: 250px; margin-bottom:70px;" id="topics" aria-labelledby="topic-label">
         <div class="container">
 
             <div class="card topic-card">

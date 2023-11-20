@@ -81,7 +81,7 @@ class FrontendController extends Controller
     }
     public function contacted(Request $request)
     {
-        Mail::to("nostelginescape@gmail.com")->send(new ContactUs($request));
+        Mail::to("nostalginescape@gmail.com")->send(new ContactUs($request));
         return to_route('frontend.contactUs');
     }
     public function subscribed(Request $request){

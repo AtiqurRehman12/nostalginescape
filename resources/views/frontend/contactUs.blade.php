@@ -5,13 +5,32 @@
         * {
             box-sizing: border-box;
         }
+        @media (min-width: 600px) {
+            .contain {
+                padding: 0;
+                margin-top: 170px;
+            }
+        }
+        @media (min-width: 700px) {
+            .wrapper {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+            }
+            .contain{
+                margin-top: 100px;
+            }
+
+            .wrapper>* {
+                padding: 2em 2em;
+            }
+        }
 
         .contain {
             background-color: transparent;
             max-width: 1170px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 170px;
+            margin-top: 190px;
             padding: 1em;
         }
 
@@ -65,11 +84,7 @@
             color: black;
         }
 
-        @media (min-width: 600px) {
-            .contain {
-                padding: 0;
-            }
-        }
+      
 
         h3,
         ul {
@@ -203,15 +218,14 @@
             </div>
 
             <div class="contacts contact-wrapper">
-
+                @php
+                $contactUs = DB::table('infos')->first()
+            @endphp
                 <ul style="color: #045773">
-                    <li>We've driven online revenues of over <span class="highlight-text-grey">$2
-                            billion</span> for our clients. Ready to know
-                        how we can help you?</li>
+                    <li>{{$contactUs->contact_us_text}}</li>
                     <span class="hightlight-contact-info">
-                        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> info@demo.com</li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">+91 11 1111
-                                2900</span></li>
+                        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> {{$contactUs->name}}</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">{{$contactUs->contact_us_number}}</span></li>
                     </span>
                 </ul>
             </div>
